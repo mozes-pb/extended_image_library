@@ -189,9 +189,10 @@ class ExtendedNetworkImageProvider
 //}
 
 ///get network image data from cached
-Future<Uint8List> getNetworkImageData(String url, {bool useCache: true}) async {
+Future<Uint8List> getNetworkImageData(String url,
+    {bool useCache: true, Map<String, String> headers}) async {
   ExtendedNetworkImageProvider imageProvider =
-      new ExtendedNetworkImageProvider(url);
+      new ExtendedNetworkImageProvider(url, headers: headers);
   String uId = keyToMd5(url);
 
   if (useCache) {
